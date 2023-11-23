@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "564697967426",
+    "project_id": "yantrik-efc7d",
+    "storage_bucket": "yantrik-efc7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564697967426:android:8471ddc8486bdfe4dcf6db",
+        "android_client_info": {
+          "package_name": "com.example.Yantrik"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_c-YqYjnYmkGRgjZgq1Ag7dmFgxoOAC4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
