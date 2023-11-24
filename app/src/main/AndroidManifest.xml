@@ -21,7 +21,7 @@
             android:value="AIzaSyAVBBJRYSXE8t_r90Q6twLJ76Gb-XZtJlk" />
 
 
-        <activity android:name=".LoginActivity"
+        <activity android:name=".StarterPage"
             android:exported="true">
             <!-- Intent filter for the main activity -->
             <intent-filter>
@@ -30,6 +30,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".RegistrationPage" />
+
+        <activity android:name=".MainActivity" />
+
+        <activity android:name=".LoginActivity" />
+
+        <activity android:name=".MapsActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

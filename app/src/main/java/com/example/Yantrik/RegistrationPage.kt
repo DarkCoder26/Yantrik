@@ -23,14 +23,6 @@ class RegistrationPage : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var user: User
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            Toast.makeText(this, "User do not Exist.", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +33,7 @@ class RegistrationPage : AppCompatActivity() {
         val registerButton = findViewById<Button>(R.id.register_button)
         val editTextUsername = findViewById<EditText>(R.id.username)
         val editTextEmail = findViewById<EditText>(R.id.email)
-        val editTextPassword = findViewById<EditText>(R.id.username)
+        val editTextPassword = findViewById<EditText>(R.id.password)
 
         auth = Firebase.auth
         user = User()
@@ -61,11 +53,18 @@ class RegistrationPage : AppCompatActivity() {
                             user.username = username
                             user.email = email
                             user.password = password
+
+                            Toast.makeText(
+                                this,
+                                "Account Created.",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             
 
                             Firebase.firestore.collection(USER_NODE)
                                 .document(Firebase.auth.currentUser!!.uid).set(user)
-                                .addOnSuccessListener {
+                                .addOnSuccessListener(this) {
+
                                     // Sign in success, update UI with the signed-in user's information
                                     Toast.makeText(
                                         this,

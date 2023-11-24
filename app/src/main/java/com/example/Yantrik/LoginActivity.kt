@@ -1,5 +1,6 @@
 package com.example.Yantrik
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -16,16 +17,6 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-    public override fun onStart() {
-        super.onStart()
-        auth = Firebase.auth
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -48,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
 //
                 Firebase.auth.signInWithEmailAndPassword(user.email!!, user.password!!).addOnCompleteListener {
                     if (it.isSuccessful){
-                        startActivity(Intent(this, MainActivity::class.java))
-                        finish()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                     }
                     else{
                         Toast.makeText(this,
@@ -66,4 +57,5 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
 }
