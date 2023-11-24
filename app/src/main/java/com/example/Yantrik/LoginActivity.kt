@@ -44,8 +44,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please Enter All Details!!", Toast.LENGTH_SHORT).show()
             }
             else{
-                var user= User(email, password)
-
+                val user= User(email, password)
+//
                 Firebase.auth.signInWithEmailAndPassword(user.email!!, user.password!!).addOnCompleteListener {
                     if (it.isSuccessful){
                         startActivity(Intent(this, MainActivity::class.java))
